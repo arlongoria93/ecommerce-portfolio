@@ -34,7 +34,7 @@ const Home = ({ products, bannerData }: Props) => {
         <title>OTBC</title>
         <meta name="description" content="The best keycaps of the 22" />
       </Head>
-      <HeroBanner />
+      <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
       {console.log(products, bannerData)}
       <div className="products-heading">
         <h1>Only The Best Caps</h1>
