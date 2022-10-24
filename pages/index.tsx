@@ -1,7 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import FooterBanner from "../components/FooterBanner";
 import HeroBanner from "../components/HeroBanner";
+import Product from "../components/Product";
 import { client } from "../lib/client";
 
 type Product = {
@@ -10,17 +12,18 @@ type Product = {
   slug: string;
   price: number;
   details: string;
+  _id: string;
 };
 type BannerData = {
   image: string;
   buttonText: string;
-  ProductText: string;
-  Desc: string;
+  productText: string;
+  desc: string;
   smallText: string;
   midText: string;
-  LargeText: string;
-  LargeText2: string;
-  DiscountText: Number;
+  largeText: string;
+  largeText2: string;
+  discount: string;
   SaleTime: string;
 };
 interface Props {
@@ -41,8 +44,11 @@ const Home = ({ products, bannerData }: Props) => {
         <p>Keycaps froms the gods</p>
       </div>
       <div className="products-container">
-        {products?.map((product) => product.name)}
+        {products?.map((product) => (
+          <Product key={product._id} product={product} />
+        ))}
       </div>
+      <FooterBanner footerBanner={bannerData && bannerData[0]} />
     </>
   );
 };
