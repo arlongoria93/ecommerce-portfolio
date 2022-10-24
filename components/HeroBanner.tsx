@@ -1,19 +1,21 @@
 import Link from "next/link";
 import React from "react";
 import { urlFor } from "../lib/client";
+import Product from "./Product";
 
 type Props = {
   heroBanner: {
     image: string;
     buttonText: string;
     productText: string;
-    Desc: string;
+    desc: string;
     smallText: string;
     midText: string;
     largeText1: string;
     largeText2: string;
     discountText: Number;
     saleTime: string;
+    product: string;
   };
 };
 
@@ -31,12 +33,12 @@ const HeroBanner = ({ heroBanner }: Props) => {
           className="hero-banner-image"
         />
         <div>
-          <Link href="/product/ID">
+          <Link href={`/product/${heroBanner.product}`}>
             <button type="button">{heroBanner.buttonText}</button>
           </Link>
           <div className="desc">
             <h5>Description</h5>
-            <p>DESCRIPTION</p>
+            <p>{heroBanner.desc}</p>
           </div>
         </div>
       </div>
