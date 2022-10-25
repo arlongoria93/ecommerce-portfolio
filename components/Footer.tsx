@@ -1,9 +1,16 @@
 import React from "react";
+import { AiFillInstagram, AiOutlineTwitter } from "react-icons/ai";
 
-type Props = {};
-
-const Footer = (props: Props) => {
-  return <div>Footer</div>;
+const Footer = () => {
+  return (
+    <div className="footer-container">
+      <p>2022 OTBC All rights reserved</p>
+      <p className="icons">
+        <AiFillInstagram />
+        <AiOutlineTwitter />
+      </p>
+    </div>
+  );
 };
 
 export default Footer;

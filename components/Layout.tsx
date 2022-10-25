@@ -9,15 +9,15 @@ const Layout = ({ children }: Props) => {
   return (
     <div className="layout">
       <Head>
-        <title>OTBC</title>
-        <header>
-          <Navbar />
-        </header>
-        <main className="main-container">{children}</main>
-        <footer>
-          <Footer />
-        </footer>
+        <title>OTBC</title>{" "}
       </Head>
+      <header>
+        <Navbar />
+      </header>
+      <main className="main-container">{children}</main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 };

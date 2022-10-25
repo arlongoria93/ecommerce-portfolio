@@ -9,7 +9,9 @@ import { client } from "../lib/client";
 type Product = {
   name: string;
   image: string;
-  slug: string;
+  slug: {
+    current: string;
+  };
   price: number;
   details: string;
   _id: string;
@@ -38,7 +40,6 @@ const Home = ({ products, bannerData }: Props) => {
         <meta name="description" content="The best keycaps of the 22" />
       </Head>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
-      {console.log(products, bannerData)}
       <div className="products-heading">
         <h1>Only The Best Caps</h1>
         <p>Keycaps froms the gods</p>
@@ -54,7 +55,7 @@ const Home = ({ products, bannerData }: Props) => {
 };
 
 export const getServerSideProps = async () => {
-  const query = `*[_type=="product"]`;
+  const query = `*[_type == "product"]`;
   const products = await client.fetch(query);
   const bannerQuery = `*[_type == "banner"]`;
   const bannerData = await client.fetch(bannerQuery);
